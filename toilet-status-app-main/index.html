@@ -1,7 +1,76 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <h1>Cloudflare Pages テスト</h1>
-    <p>これは Cloudflare Pages で動いています。</p>
-  </body>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>CU-Status | Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- 🟦 中部大学ロゴ（公式風） -->
+<div class="cu-logo">
+    <div class="cu-circle">
+        <div class="cu-en">CU</div>
+        <div class="cu-jp">中部大学</div>
+    </div>
+</div>
+
+<header>
+    <h1>CU-Status</h1>
+    <h2 id="main-title">Chubu University Login</h2>
+    <button id="login-btn">ログイン</button>
+</header>
+
+<main id="main-content" class="hidden">
+
+    <!-- 🟧 階選択画面 -->
+    <section id="floor-select-screen" class="card">
+        <h3 id="floor-title">階選択</h3>
+        <div class="floor-buttons">
+
+            <button class="floor-btn" data-floor="1"><span class="emoji">🏢</span> 1F</button>
+            <button class="floor-btn" data-floor="2"><span class="emoji">🏢</span> 2F</button>
+            <button class="floor-btn" data-floor="3"><span class="emoji">🏢</span> 3F</button>
+            <button class="floor-btn" data-floor="4"><span class="emoji">🏢</span> 4F</button>
+            <button class="floor-btn" data-floor="5"><span class="emoji">🏢</span> 5F</button>
+
+        </div>
+    </section>
+
+    <!-- 🚻 男女選択画面 -->
+    <section id="gender-select-screen" class="card hidden">
+        <button id="back-to-floor">← 階選択に戻る</button>
+        <h3>トイレの種類を選択</h3>
+
+        <div class="gender-select">
+            <button class="gender-card" data-gender="men">
+                <span class="emoji">🚹</span> Men
+            </button>
+
+            <button class="gender-card" data-gender="women">
+                <span class="emoji">🚺</span> Women
+            </button>
+        </div>
+    </section>
+
+    <!-- 🟥 MEN/WOMEN だけ表示する画面（タブなし） -->
+    <section id="status-screen" class="card hidden">
+        <button id="back-btn">← 男女選択に戻る</button>
+
+        <table class="status-table" id="table-men">
+            <thead><tr><th colspan="2">Men's Restroom</th></tr></thead>
+            <tbody id="table-men-body"></tbody>
+        </table>
+
+        <table class="status-table hidden" id="table-women">
+            <thead><tr><th colspan="2">Women's Restroom</th></tr></thead>
+            <tbody id="table-women-body"></tbody>
+        </table>
+    </section>
+
+</main>
+
+<script type="module" src="app.js"></script>
+</body>
 </html>
+
